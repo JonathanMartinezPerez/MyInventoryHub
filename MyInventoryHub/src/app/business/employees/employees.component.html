@@ -1,0 +1,41 @@
+<div class="p-6 max-w-4xl mx-auto bg-white shadow-md rounded-md mt-10">
+  <h2 class="text-2xl font-bold mb-4 text-center">Empleados de Mis Almacenes</h2>
+
+  <p-toast></p-toast>
+
+  <div *ngIf="isLoading" class="text-center">
+    <p>Loading...</p>
+  </div>
+
+  <div *ngIf="!isLoading && employees.length === 0" class="text-center text-gray-500">
+    <p>No hay empleados asignados a tus almacenes.</p>
+  </div>
+
+  <!-- Tabla de Empleados -->
+  <p-table [value]="employees" dataKey="email" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Almacenes</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-employee>
+      <tr>
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.email }}</td>
+        <td>
+          <span *ngFor="let warehouse of employee.warehouses; let i = index">
+            {{ warehouse }}<span *ngIf="i < employee.warehouses.length - 1">, </span>
+          </span>
+        </td>
+        <td>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>

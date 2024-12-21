@@ -1,0 +1,22 @@
+
+  .warehouse-form-inline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .warehouse-form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .warehouse-form-group input {
+    min-width: 200px;
+  }
+  
+  .warehouse-form-button {
+    white-space: nowrap;
+  }
+
